@@ -24,7 +24,8 @@ class MainActivity : AppCompatActivity() {
         tvInput?.append((view as Button).text)
         lastDigitIsNumeric = true
         lastDigitIsDot = false
-        Toast.makeText(this, "Button clicked", Toast.LENGTH_LONG).show()
+
+
     }
 
     fun onCLear(view: View) {
@@ -36,6 +37,28 @@ class MainActivity : AppCompatActivity() {
             tvInput?.append(".")
             lastDigitIsDot = true
             lastDigitIsNumeric = false
+        }
+    }
+
+    fun onOperator(view: View) {
+        tvInput?.text?.let {
+            if (lastDigitIsNumeric and isOperatorAdded(it.toString()).not()) {
+                tvInput?.append((view as Button).text)
+                lastDigitIsDot = false
+                lastDigitIsNumeric = false
+            }
+        }
+    }
+
+
+    private fun isOperatorAdded(value: String): Boolean {
+        return if (value.startsWith("-")) {
+            false
+        } else {
+            value.contains("/") or
+                    value.contains("*") or
+                    value.contains("+") or
+                    value.contains("-")
         }
     }
 }
