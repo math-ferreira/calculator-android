@@ -178,11 +178,22 @@
         android:layout_weight="1">
 
         <Button
+            android:id="@+id/btnDot"
+            android:layout_margin="2dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="onDecimalPoint"
+            android:text="@string/dot"
+            android:textColor="@color/greenLevel1"
+            tools:ignore="UsingOnClickInXml" />
+
+        <Button
             android:id="@+id/btnZero"
             android:layout_margin="2dp"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:onClick="onDigit"
             android:text="@string/_0"
             android:textColor="@color/greenLevel1"
