@@ -5,9 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import java.lang.ArithmeticException
-import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,7 +33,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onDecimalPoint(view: View) {
-        if (lastDigitIsNumeric and lastDigitIsDot.not()) {
+        if (lastDigitIsNumeric
+            and lastDigitIsDot.not()
+            and allowOneMoreDot()
+        ) {
             tvInput?.append(".")
             lastDigitIsDot = true
             lastDigitIsNumeric = false
@@ -57,24 +58,64 @@ class MainActivity : AppCompatActivity() {
             var tvValue = tvInput?.text.toString()
             var prefix = ""
             try {
+
                 if (tvValue.startsWith("-")) {
                     prefix = "-"
                     tvValue = tvValue.substring(1)
                 }
 
-                if (tvValue.contains("-")){
+                if (tvValue.contains("-")) {
 
                     val splitValue = tvValue.split("-")
 
                     var one = splitValue[0]
                     var two = splitValue[1]
 
-                    if(prefix.isNotEmpty()) {
-                        one  = prefix + one
+                    if (prefix.isNotEmpty()) {
+                        one = prefix + one
                     }
 
                     val result = one.toDouble() - two.toDouble()
-                    tvInput?.text = result.toString()
+                    tvInput?.text = removeZeroAfterDot(result.toString())
+                } else if (tvValue.contains("+")) {
+
+                    val splitValue = tvValue.split("+")
+
+                    var one = splitValue[0]
+                    var two = splitValue[1]
+
+                    if (prefix.isNotEmpty()) {
+                        one = prefix + one
+                    }
+
+                    val result = one.toDouble() + two.toDouble()
+                    tvInput?.text = removeZeroAfterDot(result.toString())
+                } else if (tvValue.contains("/")) {
+
+                    val splitValue = tvValue.split("/")
+
+                    var one = splitValue[0]
+                    var two = splitValue[1]
+
+                    if (prefix.isNotEmpty()) {
+                        one = prefix + one
+                    }
+
+                    val result = one.toDouble() / two.toDouble()
+                    tvInput?.text = removeZeroAfterDot(result.toString())
+                } else if (tvValue.contains("*")) {
+
+                    val splitValue = tvValue.split("*")
+
+                    var one = splitValue[0]
+                    var two = splitValue[1]
+
+                    if (prefix.isNotEmpty()) {
+                        one = prefix + one
+                    }
+
+                    val result = one.toDouble() * two.toDouble()
+                    tvInput?.text = removeZeroAfterDot(result.toString())
                 }
 
 
@@ -84,6 +125,30 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun allowOneMoreDot(): Boolean {
+        if (tvInput?.text.isNullOrEmpty())
+            return false
+
+        var tvValue = tvInput?.text.toString()
+
+        if (tvValue.startsWith("-")) {
+            tvValue = tvValue.substring(1)
+        }
+        val numbers = tvValue.split("-", "+", "*", "/")
+        return when (numbers.size) {
+            1 -> numbers[0].contains(".").not()
+            2 -> numbers[1].contains(".").not()
+            else -> true
+        }
+    }
+
+    private fun removeZeroAfterDot(result: String): String {
+        var value = result
+        if (result.contains(".0"))
+            value = result.substring(0, result.length - 2)
+
+        return value
+    }
 
     private fun isOperatorAdded(value: String): Boolean {
         return if (value.startsWith("-")) {
