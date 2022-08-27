@@ -29,8 +29,9 @@
             android:layout_weight="1"
             android:onClick="onDigit"
             android:text="@string/_7"
+            android:textSize="20sp"
             android:textColor="@color/greenLevel1"
-            tools:ignore="UsingOnClickInXml" />
+            tools:ignore="NestedWeights,UsingOnClickInXml" />
 
         <Button
             android:id="@+id/btnEight"
@@ -40,6 +41,7 @@
             android:layout_weight="1"
             android:onClick="onDigit"
             android:text="@string/_8"
+            android:textSize="20sp"
             android:textColor="@color/greenLevel1"
             tools:ignore="UsingOnClickInXml" />
 
@@ -51,6 +53,7 @@
             android:layout_weight="1"
             android:onClick="onDigit"
             android:text="@string/_9"
+            android:textSize="20sp"
             android:textColor="@color/greenLevel1"
             tools:ignore="UsingOnClickInXml" />
 
@@ -62,6 +65,7 @@
             android:layout_weight="1"
             android:onClick="onOperator"
             android:text="@string/Divide"
+            android:textSize="20sp"
             android:textColor="@color/greenLevel1"
             tools:ignore="UsingOnClickInXml" />
 
@@ -81,8 +85,9 @@
             android:layout_weight="1"
             android:onClick="onDigit"
             android:text="@string/_4"
+            android:textSize="20sp"
             android:textColor="@color/greenLevel1"
-            tools:ignore="UsingOnClickInXml" />
+            tools:ignore="NestedWeights,UsingOnClickInXml" />
 
         <Button
             android:id="@+id/btnFive"
@@ -92,6 +97,7 @@
             android:layout_weight="1"
             android:onClick="onDigit"
             android:text="@string/_5"
+            android:textSize="20sp"
             android:textColor="@color/greenLevel1"
             tools:ignore="UsingOnClickInXml" />
 
@@ -103,6 +109,7 @@
             android:layout_weight="1"
             android:onClick="onDigit"
             android:text="@string/_6"
+            android:textSize="20sp"
             android:textColor="@color/greenLevel1"
             tools:ignore="UsingOnClickInXml" />
 
@@ -114,6 +121,7 @@
             android:layout_weight="1"
             android:onClick="onOperator"
             android:text="@string/Multiply"
+            android:textSize="20sp"
             android:textColor="@color/greenLevel1"
             tools:ignore="UsingOnClickInXml" />
 
@@ -133,8 +141,9 @@
             android:layout_weight="1"
             android:onClick="onDigit"
             android:text="@string/_1"
+            android:textSize="20sp"
             android:textColor="@color/greenLevel1"
-            tools:ignore="UsingOnClickInXml" />
+            tools:ignore="NestedWeights,UsingOnClickInXml" />
 
         <Button
             android:id="@+id/btnTwo"
@@ -144,6 +153,7 @@
             android:layout_weight="1"
             android:onClick="onDigit"
             android:text="@string/_2"
+            android:textSize="20sp"
             android:textColor="@color/greenLevel1"
             tools:ignore="UsingOnClickInXml" />
 
@@ -155,6 +165,7 @@
             android:layout_weight="1"
             android:onClick="onDigit"
             android:text="@string/_3"
+            android:textSize="20sp"
             android:textColor="@color/greenLevel1"
             tools:ignore="UsingOnClickInXml" />
 
@@ -166,6 +177,7 @@
             android:layout_weight="1"
             android:onClick="onOperator"
             android:text="@string/Subtract"
+            android:textSize="20sp"
             android:textColor="@color/greenLevel1"
             tools:ignore="UsingOnClickInXml" />
 
@@ -185,8 +197,9 @@
             android:layout_weight="1"
             android:onClick="onDecimalPoint"
             android:text="@string/dot"
+            android:textSize="20sp"
             android:textColor="@color/greenLevel1"
-            tools:ignore="UsingOnClickInXml" />
+            tools:ignore="MissingPrefix,NestedWeights,UsingOnClickInXml" />
 
         <Button
             android:id="@+id/btnZero"
@@ -196,6 +209,7 @@
             android:layout_weight="1"
             android:onClick="onDigit"
             android:text="@string/_0"
+            android:textSize="20sp"
             android:textColor="@color/greenLevel1"
             tools:ignore="UsingOnClickInXml" />
 
@@ -207,6 +221,7 @@
             android:layout_weight="1"
             android:onClick="onCLear"
             android:text="@string/clr"
+            android:textSize="20sp"
             android:textColor="@color/greenLevel1"
             tools:ignore="UsingOnClickInXml" />
 
@@ -218,6 +233,7 @@
             android:layout_weight="1"
             android:onClick="onOperator"
             android:text="@string/plus"
+            android:textSize="20sp"
             android:textColor="@color/greenLevel1"
             tools:ignore="UsingOnClickInXml" />
 
@@ -235,10 +251,11 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="onDigit"
+            android:onClick="onEqual"
             android:text="@string/equal"
+            android:textSize="20sp"
             android:textColor="@color/greenLevel1"
-            tools:ignore="UsingOnClickInXml" />
+            tools:ignore="MissingPrefix,NestedWeights,UsingOnClickInXml" />
 
     </LinearLayout>
 
